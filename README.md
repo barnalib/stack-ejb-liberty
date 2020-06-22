@@ -8,4 +8,4 @@ A minimal, runnable  stack that can be used as a base for developing EJB applica
 
 Note: To run it locally instead of OCP cluster, Currently appsody RUN is not functioning as expected. Instead use 
 ###### a>appsody build , get the docker final image of application generated as a outcome of "appsody build" and
-###### b>docker run -p 9080:9080 <<docker-final-image>> to run it locally
+###### b>docker run -p 9080:9080 <docker-final-image> to run it locally
