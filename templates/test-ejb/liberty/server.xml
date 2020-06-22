@@ -1,0 +1,46 @@
+<server>
+  <featureManager>
+      <feature>jsp-2.3</feature>
+      <feature>servlet-4.0</feature>
+      <feature>ejbLite-3.2</feature>
+      <feature>jpa-2.2</feature>
+      <feature>jaxrs-2.1</feature>
+      <feature>appSecurity-2.0</feature>
+      <feature>localConnector-1.0</feature>
+      <feature>ldapRegistry-3.0</feature>
+      <feature>monitor-1.0</feature>
+<feature>webProfile-8.0</feature>
+  </featureManager>
+
+ 
+ <library id="MySQLLib">
+        <fileset dir="/opt/ol/wlp/usr/shared/resources/mysql" includes="*.jar"/>
+    </library>
+  <dataSource id="DefaultDataSource" jndiName="jdbc/mySQL" >
+    <jdbcDriver libraryRef="MySQLLib"/>
+    <properties databaseName="digibk" password="adminadmin" portNumber="3306" serverName="database-dnb.cdj9jj71v6p2.us-east-2.rds.amazonaws.com" user="admin"/>
+    <connectionManager agedTimeout="0" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="10" minPoolSize="1" reapTime="180"/>
+  </dataSource>
+
+
+  <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint">
+    <tcpOptions soReuseAddr="true"/>
+  </httpEndpoint>
+
+  <keyStore id="defaultKeyStore" password="whodunit"/>
+  <!-- User and group security definitions -->
+
+  <basicRegistry id="basic" realm="customRealm">
+   	<user name="rbarcia" password="bl0wfish"/>
+   	<group name="SecureShopper">
+      <member name="rbarcia"/>
+     </group>
+  </basicRegistry>
+
+  <applicationMonitor updateTrigger="mbean"/>
+
+  <application id="ejb-ear" name="ejb-ear.ear" type="ear" location="ejb-ear.ear">
+    <classloader apiTypeVisibility="spec, ibm-api, third-party" />
+  </application>
+
+</server>

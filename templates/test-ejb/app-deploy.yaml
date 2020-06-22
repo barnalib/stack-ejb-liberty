@@ -1,0 +1,52 @@
+apiVersion: appsody.dev/v1beta1
+kind: AppsodyApplication
+metadata:
+  annotations:
+    commit.stack.appsody.dev/author: Bhattacharyya, B <b.bhattacharyya@accenture.com>
+    commit.stack.appsody.dev/committer: Bhattacharyya, B <b.bhattacharyya@accenture.com>
+    commit.stack.appsody.dev/date: Mon Jun 8 20:03:50 2020 +0530
+    commit.stack.appsody.dev/message: update
+    image.opencontainers.org/created: "2020-06-22T17:59:18+05:30"
+    stack.appsody.dev/authors: Barnali <b.bhattacharyya@accenture.com>
+    stack.appsody.dev/configured: dev.local/appsody/myejbstack:0.1
+    stack.appsody.dev/created: "2020-06-21T21:11:30+05:30"
+    stack.appsody.dev/description: EJB on Liberty using Maven
+    stack.appsody.dev/documentation: https://github.com/barnalib/stack-spring-mvc-liberty/tree/master/README.md
+    stack.appsody.dev/licenses: Apache-2.0
+    stack.appsody.dev/revision: 778b9a2e4f803d31028604b4adfb61a9fec5c3c5-modified
+    stack.appsody.dev/source: https://github.com/barnalib/stack-spring-mvc-liberty/tree/master/image
+    stack.appsody.dev/tag: dev.local/appsody/myejbstack:0.1.1
+    stack.appsody.dev/title: ejb on Liberty
+    stack.appsody.dev/url: https://github.com/barnalib/stack-spring-mvc-liberty
+  creationTimestamp: null
+  labels:
+    image.opencontainers.org/title: test-ejb-stack
+    stack.appsody.dev/id: myejbstack
+    stack.appsody.dev/version: 0.1.1
+  name: test-ejb-stack
+  namespace: cpfa-dnb
+spec:
+  applicationImage: image-registry.openshift-image-registry.svc:5000/cpfa-dnb/dnb-transaction-ejb:latest
+  createKnativeService: false
+  expose: true
+  livenessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /
+      port: 9080
+    initialDelaySeconds: 5
+    periodSeconds: 2
+  readinessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /
+      port: 9080
+    initialDelaySeconds: 5
+    periodSeconds: 2
+    timeoutSeconds: 1
+  service:
+    annotations:
+      prometheus.io/scrape: "true"
+    port: 9080
+    type: NodePort
+  version: 1.0.0

@@ -1,0 +1,18 @@
+name: ejb on Liberty
+version: 0.1.1
+description: EJB on Liberty using Maven
+license: Apache-2.0
+language: java
+maintainers:
+ - name: Barnali
+   email: b.bhattacharyya@accenture.com
+   github-id: barnalib
+default-template: default
+requirements:
+    docker-version: ">= 17.09.0"
+    appsody-version: ">= 0.5.0"
+templating-data:
+    libertyversion: '20.0.0.3'
+    parentpomgroup: 'dev.appsody'
+    parentpomid: 'ejb-liberty'
+    parentpomrange: '[0.2, 0.3)'
