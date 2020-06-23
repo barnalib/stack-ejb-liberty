@@ -1,0 +1,20 @@
+[
+	{
+		"displayName": "Appsody-Ejb ejb on Liberty default template",
+		"description": "EJB on Liberty using Maven",
+		"language": "java",
+		"projectType": "appsodyExtension",
+		"projectStyle": "Appsody",
+		"location": "https://github.com/barnalib/stack-ejb-liberty/releases/download/latest/myejbstack.v0.1.1.templates.default.tar.gz",
+		"self": "/devfiles/myejbstack/devfile.yaml"
+	},
+	{
+		"displayName": "Appsody-Ejb ejb on Liberty test-ejb template",
+		"description": "EJB on Liberty using Maven",
+		"language": "java",
+		"projectType": "appsodyExtension",
+		"projectStyle": "Appsody",
+		"location": "https://github.com/barnalib/stack-ejb-liberty/releases/download/latest/myejbstack.v0.1.1.templates.test-ejb.tar.gz",
+		"self": "/devfiles/myejbstack/devfile.yaml"
+	}
+]
